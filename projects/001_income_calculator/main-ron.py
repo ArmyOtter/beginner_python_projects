@@ -1,14 +1,6 @@
 # Edited Python code by Ron Deese
 # 1. Create a function to calculate finances
 import sys
-def calculate_finances(monthly_income: float, tax_rate: float, currency: str) -> None:
-    # 2. Do the math for each field
-    yearly_salary: float = monthly_income * 12
-    monthly_tax: float = monthly_income * (tax_rate / 100)
-    yearly_tax: float = monthly_tax * 12
-    monthly_net_income: float = monthly_income - monthly_tax
-    yearly_net_income: float = yearly_salary - yearly_tax
-
 def calculate_finances_yearly(yearly_salary: float, tax_rate: float, currency: str) -> None:
     # 2. Do the math for each field
     monthly_income: float = yearly_salary / 12
@@ -31,7 +23,6 @@ def calculate_finances_yearly(yearly_salary: float, tax_rate: float, currency: s
     # 4. Create a main entry point for the program
 def main() -> None:
     # 5. Gather user input
-    #monthly_income: float = float(input('Enter your monthly income: '))
     Trys_Allowed: int = 5
     Salary_Try_Count: int = 0
     Tax_Try_Count: int = 0
@@ -44,7 +35,7 @@ def main() -> None:
             if Salary_Try_Count < Trys_Allowed:
                 print ("Not a valid input. Try again.")
             else:
-                print ("You're an idiot!") #This dummy has entered too many invalid responses.
+                print ("You've exceeded the allowable amount of attempts.  Goodbye.") #Notify user and close program.
                 sys.exit(1) #Close the program with an error code.
                 
     while Tax_Try_Count < Trys_Allowed:     
@@ -56,11 +47,10 @@ def main() -> None:
             if Tax_Try_Count < Trys_Allowed:
                 print ("Not a valid input. Try again.")
             else:
-                print ("You're an idiot!") #This dummy has entered too many invalid responses.
+                print ("You've exceeded the allowable amount of attempts.  Goodbye.") #Notify user and close program.
                 sys.exit(1) #Close the program with an error code.
 
     # 6. Call the function
-    ##calculate_finances(monthly_income, tax_rate, currency='$')
     if Salary_Try_Count < Trys_Allowed and Tax_Try_Count < Trys_Allowed:
         calculate_finances_yearly(yearly_salary, tax_rate, currency='$')
 
