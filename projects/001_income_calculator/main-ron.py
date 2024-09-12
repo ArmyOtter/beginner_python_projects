@@ -23,35 +23,35 @@ def calculate_finances_yearly(yearly_salary: float, tax_rate: float, currency: s
     # 4. Create a main entry point for the program
 def main() -> None:
     # 5. Gather user input
-    Trys_Allowed: int = 5
-    Salary_Try_Count: int = 0
-    Tax_Try_Count: int = 0
-    while Salary_Try_Count < Trys_Allowed:
+    trys_allowed: int = 5
+    salary_try_count: int = 0
+    tax_try_count: int = 0
+    while salary_try_count < trys_allowed:
         try:
             yearly_salary: float = float(input('Enter your annual salary: '))
             break # Exit the loop if no exception and less than the allowed trys.
         except:
-            Salary_Try_Count = Salary_Try_Count + 1
-            if Salary_Try_Count < Trys_Allowed:
+            salary_try_count = salary_try_count + 1
+            if salary_try_count < trys_allowed:
                 print ("Not a valid input. Try again.")
             else:
                 print ("You've exceeded the allowable amount of attempts.  Goodbye.") #Notify user and close program.
                 sys.exit(1) #Close the program with an error code.
                 
-    while Tax_Try_Count < Trys_Allowed:     
+    while tax_try_count < trys_allowed:
         try:
             tax_rate: float = float(input('Enter your tax rate (%): '))
             break # Exit the loop if no exception and less than the allowed trys.
         except:
-            Tax_Try_Count = Tax_Try_Count + 1
-            if Tax_Try_Count < Trys_Allowed:
+            tax_try_count = tax_try_count + 1
+            if tax_try_count < trys_allowed:
                 print ("Not a valid input. Try again.")
             else:
                 print ("You've exceeded the allowable amount of attempts.  Goodbye.") #Notify user and close program.
                 sys.exit(1) #Close the program with an error code.
 
     # 6. Call the function
-    if Salary_Try_Count < Trys_Allowed and Tax_Try_Count < Trys_Allowed:
+    if salary_try_count < trys_allowed and tax_try_count < trys_allowed:
         calculate_finances_yearly(yearly_salary, tax_rate, currency='$')
 
 # 7. Run the script
